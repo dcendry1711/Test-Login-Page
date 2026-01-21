@@ -6,6 +6,12 @@ export class LoginPage {
   loginButton: Locator;
   loginMessage: Locator;
 
+  async executeLoginUser(login: string, password: string): Promise<void> {
+    await this.userNameInput.fill(login);
+    await this.userPasswordInput.fill(password);
+    await this.loginButton.click();
+  }
+
   constructor(private page: Page) {
     this.userNameInput = this.page.locator("#username")
     this.userPasswordInput = this.page.locator("#password")
